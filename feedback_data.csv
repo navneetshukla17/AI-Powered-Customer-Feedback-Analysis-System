@@ -1,2 +1,4 @@
 id,timestamp,rating,review,ai_response,summary,actions,date
 1765524322838,2025-12-12T12:55:22.838360,1,Product was not good as shown in the image,"We sincerely apologize for not meeting your expectations. Your feedback is invaluable to us, and we're committed to making things right.",Customer expressed dissatisfaction with the service experience (rated 1/5),"[""Reach out immediately to apologize and resolve issue"", ""Conduct internal investigation into problems raised"", ""Offer compensation to recover customer relationship""]",2025-12-12
+1780458616219,2026-06-03T09:20:16.219130,1,"This is working fine, but need to make some UI changes
+","We sincerely apologize for not meeting your expectations. Your feedback is invaluable to us, and we're committed to making things right.",,,

@@ -1,392 +1,228 @@
-# 🤖 AI-Powered Customer Feedback Analysis System
+# Noted — AI-Powered Feedback & Resolution
 
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/)
-[![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com/)
+> **Hear it. Respond. Resolve.**  
+> Noted closes the customer feedback loop — from submission to resolution — using sentiment-aware AI responses and a structured three-email communication lifecycle.
 
-> **Production-ready feedback management system powered by Qwen-2 7B LLM**  
-> Automatically generates contextual responses to customer reviews and provides actionable business insights through advanced analytics.
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://sqlite.org/)
+[![Qwen-2 7B](https://img.shields.io/badge/LLM-Qwen--2%207B-FFD21E?style=flat-square&logo=huggingface&logoColor=black)](https://huggingface.co/Qwen/Qwen2-7B-Instruct)
+[![Resend](https://img.shields.io/badge/Email-Resend-000000?style=flat-square)](https://resend.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 Live Demo](https://llm-powered-customer-feedback-system-navneet-shukla.streamlit.app/) | [📊 Admin Dashboard](#admin-dashboard) | [📖 Documentation](#features)
-
----
-
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Key Features](#key-features)
-- [Architecture](#architecture)
-- [Demo Screenshots](#demo-screenshots)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Technology Stack](#technology-stack)
-- [API Integration](#api-integration)
-- [Deployment](#deployment)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
-- [Connect](#connect)
+[🚀 View Live](https://your-live-url.com) &nbsp;·&nbsp; [📋 PRD](./PRD_AI_Powered_Customer_Feedback.docx) &nbsp;·&nbsp; [🐛 Report a Bug](https://github.com/navneetshukla17/noted/issues)
 
 ---
 
-## 🎯 Overview
+## The Problem
 
-This intelligent feedback management platform revolutionizes customer service by leveraging Large Language Models (LLMs) to automate response generation and extract actionable insights from customer feedback. The system provides a dual-dashboard approach:
+Most businesses collect customer feedback and do nothing visible with it. Customers submit reviews and hear silence — no acknowledgement, no timeline, no closure. This erodes trust and kills re-engagement.
 
-- **Customer Portal**: Beautiful, intuitive interface for submitting feedback with instant AI-generated responses
-- **Admin Dashboard**: Comprehensive analytics and insights with automated action recommendations
+**Noted fixes three broken moments in the feedback lifecycle:**
 
-### Why This Project?
-
-- ⚡ **Instant Response**: Customers receive personalized responses in seconds
-- 🎯 **Sentiment-Aware**: AI adjusts tone based on rating (positive/neutral/negative)
-- 📊 **Data-Driven**: Real-time analytics help identify trends and improvement areas
-- 🤖 **AI-Powered Insights**: Automated analysis generates actionable recommendations
-- 💼 **Production-Ready**: Built with scalability and deployment in mind
+| Broken Moment | What Noted Does |
+|---|---|
+| No acknowledgement | Sends a sentiment-matched AI email within 5 seconds of submission |
+| No timeline | Lets admins commit to a TAT and notify the customer instantly |
+| No closure | Triggers a resolution email referencing the original complaint and what changed |
 
 ---
 
-## ✨ Key Features
+## System Architecture
 
-### Customer Dashboard
-- 🌟 **Interactive Star Rating**: Intuitive 1-5 star rating system
-- 📝 **Rich Text Feedback**: Detailed review submission with character counter
-- 🤖 **Instant AI Response**: Context-aware responses generated using Qwen-2 7B
-- 🎨 **Modern UI/UX**: Gradient design with smooth animations and responsive layout
-- ✅ **Real-time Validation**: Ensures quality feedback before submission
+![Noted System Architecture](./system_architecture.svg)
 
-### Admin Dashboard
-- 📊 **Analytics Overview**: 
-  - Total reviews count
-  - Average rating with trend indicators
-  - Positive/negative sentiment distribution
-  - Response rate metrics
-
-- 📈 **Visual Analytics**:
-  - Rating distribution bar chart
-  - Timeline chart showing feedback trends
-  - Color-coded sentiment indicators
-
-- 🔍 **AI-Powered Analysis**:
-  - One-sentence summary of key issues
-  - Three specific actionable recommendations
-  - Automated sentiment classification
-  - Regenerate analysis capability
-
-- 💡 **Smart Insights**:
-  - Identifies patterns in customer feedback
-  - Prioritizes action items by urgency
-  - Highlights positive trends for reinforcement
+The system is structured across two clear boundaries — a **React frontend** consumed by two personas (customers and admins), and a **Node.js backend** that owns AI inference, email delivery, and SQLite persistence. Every feedback item moves through a defined status lifecycle: `submitted → acknowledged → in-progress → resolved`.
 
 ---
 
-## 🏗️ Architecture
+## Key Features
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     USER INTERFACE LAYER                     │
-├──────────────────────┬──────────────────────────────────────┤
-│  Customer Dashboard  │        Admin Dashboard               │
-│  - Rating Input      │  - Analytics Metrics                 │
-│  - Review Form       │  - Visual Charts                     │
-│  - AI Response View  │  - Feedback Management               │
-└──────────────┬───────┴──────────────┬───────────────────────┘
-               │                      │
-               ▼                      ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    APPLICATION LAYER                         │
-│  - Streamlit Framework                                       │
-│  - Session State Management                                  │
-│  - Data Processing (Pandas)                                  │
-│  - Visualization (Plotly)                                    │
-└──────────────┬──────────────────────────────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      AI/ML LAYER                             │
-│  - Hugging Face Inference API                                │
-│  - Qwen-2 7B Instruct Model                                  │
-│  - Context-Aware Prompt Engineering                          │
-│  - Sentiment Analysis                                        │
-└──────────────┬──────────────────────────────────────────────┘
-               │
-               ▼
-┌─────────────────────────────────────────────────────────────┐
-│                    DATA LAYER                                │
-│  - CSV-based Storage (feedback_data.csv)                     │
-│  - Structured Data Schema                                    │
-│  - CRUD Operations                                           │
-└─────────────────────────────────────────────────────────────┘
-```
+### For Customers
+- **Feedback Form** — star rating (1–5) + written review + email address, with real-time validation
+- **Instant AI Response** — Qwen-2 7B generates a personalised reply inline on submission
+- **Sentiment-Matched Email** — acknowledgement email tone matches the customer's rating tier automatically
+
+### For Admins
+- **Analytics Dashboard** — total reviews, average rating, positive/negative split, rating distribution chart, submission timeline
+- **Per-Review AI Analysis** — one-sentence summary + three prioritised action items, generated on demand with regeneration support
+- **TAT Commitment Workflow** — send a turnaround time promise to the customer directly from the dashboard
+- **Resolution Email Trigger** — mark feedback as resolved and notify the customer with context of what changed
+
+### Under the Hood
+- **Three-Stage Email Loop** — acknowledgement → TAT → resolution, each with three sentiment variants (positive / neutral / negative)
+- **SQLite Persistence** — full feedback lifecycle stored with UUID identifiers, status tracking, and email event logging
+- **Graceful Degradation** — hardcoded fallback responses when the Hugging Face API is unavailable; email features degrade cleanly without crashing the app
 
 ---
-## 🚀 Installation
+
+## Tech Stack
+
+| Layer | Technology | Purpose |
+|---|---|---|
+| Frontend | React 18 + Vite | Customer portal and admin dashboard |
+| Styling | Tailwind CSS + shadcn/ui | Component design system |
+| Charts | Recharts | Rating distribution and timeline analytics |
+| Backend | Node.js + Express | REST API and business logic |
+| Database | SQLite (better-sqlite3) | Feedback lifecycle persistence |
+| AI / LLM | Qwen-2 7B via Hugging Face | Response generation and analysis |
+| Email | Resend.com | Transactional email delivery |
+| Config | dotenv | Environment variable management |
+
+---
+
+## Getting Started
 
 ### Prerequisites
-- Python 3.8 or higher
-- pip package manager
-- Hugging Face API token ([Get one here](https://huggingface.co/settings/tokens))
 
-### Local Setup
+- Node.js v18 or higher
+- A [Hugging Face API token](https://huggingface.co/settings/tokens)
+- A [Resend.com API key](https://resend.com) (free tier — 3,000 emails/month)
 
-1. **Clone the repository**
+### Installation
+
+**1. Clone the repository**
 ```bash
-git clone https://github.com/navneetshukla17/LLM-powered-customer-feedback-system.git
-cd LLM-powered-customer-feedback-system
+git clone https://github.com/navneetshukla17/noted.git
+cd noted
 ```
 
-2. **Create virtual environment**
+**2. Configure environment variables**
+
+Copy the example file and fill in your credentials:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+cp .env.example .env
 ```
 
-3. **Install dependencies**
-```bash
-pip install -r requirements.txt
+```env
+HF_TOKEN=your_huggingface_api_token
+RESEND_API_KEY=your_resend_api_key
+EMAIL_FROM=feedback@yourdomain.com
+DATABASE_PATH=./data/feedback.db
+PORT=3001
 ```
 
-4. **Configure secrets**
+> **Note:** The app starts with a warning (not a crash) if `RESEND_API_KEY` is missing — email features are disabled gracefully. The app will crash on startup with a clear error if `HF_TOKEN` is missing.
 
-Create `.streamlit/secrets.toml`:
-```toml
-HF_TOKEN = "your_huggingface_token_here"
+**3. Install and run the backend**
+```bash
+cd backend
+npm install
+npm run dev
 ```
 
-5. **Run the application**
+The SQLite database is initialised automatically on first startup. No migration step required.
 
-For Customer Dashboard:
+**4. Install and run the frontend**
 ```bash
-streamlit run user_dashboard.py
+cd frontend
+npm install
+npm run dev
 ```
 
-For Admin Dashboard:
-```bash
-streamlit run admin_dashboard.py
+The app is now running at `http://localhost:5173`.
+
+---
+
+## API Reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/feedback` | Submit feedback — generates AI reply, sends acknowledgement email, writes to DB |
+| `GET` | `/api/feedback` | Returns all feedback records for the admin dashboard |
+| `POST` | `/api/feedback/:id/analysis` | Triggers AI summary and action item generation for a specific record |
+| `POST` | `/api/feedback/:id/tat` | Sends TAT commitment email, updates status to `acknowledged` |
+| `POST` | `/api/feedback/:id/resolve` | Sends resolution closure email, updates status to `resolved` |
+
+---
+
+## Database Schema
+
+```sql
+-- Feedback lifecycle table
+CREATE TABLE feedback (
+  id              TEXT PRIMARY KEY,        -- UUID
+  timestamp       TEXT NOT NULL,
+  email           TEXT NOT NULL,
+  rating          INTEGER NOT NULL,        -- 1–5
+  review          TEXT NOT NULL,
+  ai_response     TEXT,
+  summary         TEXT,
+  actions         TEXT,                    -- JSON array
+  status          TEXT DEFAULT 'submitted',-- submitted | acknowledged | in-progress | resolved
+  tat_sent_at     TEXT,
+  resolved_at     TEXT,
+  resolution_notes TEXT
+);
+
+-- Email event log
+CREATE TABLE email_events (
+  id          TEXT PRIMARY KEY,
+  feedback_id TEXT NOT NULL,
+  event_type  TEXT NOT NULL,              -- acknowledgement | tat | resolution
+  sent_at     TEXT NOT NULL,
+  success     INTEGER NOT NULL            -- 1 = delivered, 0 = failed
+);
 ```
 
 ---
 
-## 💻 Usage
+## Sentiment Classification
 
-### Customer Workflow
+Noted uses rating tiers to determine AI tone across all three email stages:
 
-1. **Visit the Customer Dashboard**
-2. **Select Rating**: Choose 1-5 stars based on experience
-3. **Write Review**: Provide detailed feedback (minimum 10 characters)
-4. **Submit**: Click "Submit Feedback" button
-5. **Receive Response**: Get instant AI-generated personalized response
-
-### Admin Workflow
-
-1. **Access Admin Dashboard**
-2. **View Analytics**: Monitor overall metrics and trends
-3. **Review Feedback**: Browse through submitted reviews
-4. **Generate Analysis**: Click "Generate AI Analysis" for insights
-5. **Take Action**: Follow AI-recommended action items
+| Rating | Tier | Response Tone |
+|---|---|---|
+| 4–5 ⭐ | Positive | Warm, grateful, celebratory |
+| 3 ⭐ | Neutral | Professional, balanced, improvement-focused |
+| 1–2 ⭐ | Negative | Apologetic, solution-oriented, trust-rebuilding |
 
 ---
 
-## 🛠️ Technology Stack
+## Project Structure
 
-| Category | Technology | Purpose |
-|----------|-----------|---------|
-| **Frontend** | Streamlit | Interactive web interface |
-| **Language** | Python 3.8+ | Core application logic |
-| **Data Processing** | Pandas | Data manipulation and storage |
-| **Visualization** | Plotly | Interactive charts and graphs |
-| **AI/ML** | Qwen-2 7B (HF API) | LLM for text generation |
-| **Styling** | Custom CSS | Modern gradient UI |
-| **Deployment** | Streamlit Cloud | Cloud hosting |
-
-### Dependencies
-
-```txt
-streamlit==1.39.0      # Web framework
-pandas==2.2.3          # Data manipulation
-plotly==5.24.1         # Interactive visualizations
-requests==2.31.0       # HTTP requests for API calls
+```
+noted/
+├── backend/
+│   ├── src/
+│   │   ├── routes/         # Express route handlers
+│   │   ├── db/             # SQLite init and query helpers
+│   │   ├── ai/             # Hugging Face inference client
+│   │   └── emails/         # Resend client + 9 email templates
+│   └── server.js
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # Shared UI components
+│   │   ├── pages/          # FeedbackForm, AdminDashboard
+│   │   └── main.jsx
+│   └── index.html
+├── .env.example
+└── README.md
 ```
 
 ---
 
-## 🔌 API Integration
+## Roadmap
 
-### Hugging Face Inference API
-
-The system uses the Hugging Face Inference API to access the Qwen-2 7B Instruct model:
-
-```python
-HF_API_URL = "https://api-inference.huggingface.co/models/Qwen/Qwen2-7B-Instruct"
-
-# Example API call
-response = requests.post(
-    HF_API_URL,
-    headers={"Authorization": f"Bearer {HF_TOKEN}"},
-    json={
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": 100,
-            "temperature": 0.7,
-            "top_p": 0.9,
-            "return_full_text": False
-        }
-    }
-)
-```
-
-### Response Generation Logic
-
-The system implements intelligent context-aware prompting:
-
-- **Positive Feedback (4-5 stars)**: Warm, grateful tone
-- **Neutral Feedback (3 stars)**: Understanding, improvement-focused
-- **Negative Feedback (1-2 stars)**: Apologetic, solution-oriented
+- [ ] Admin authentication (JWT-based login)
+- [ ] Editable AI responses before email send
+- [ ] Multi-language email template support
+- [ ] Word cloud and topic modelling on the admin dashboard
+- [ ] PostgreSQL migration path for production scale
+- [ ] Webhook / CRM integration (Salesforce, HubSpot)
+- [ ] Mobile-responsive React Native companion
 
 ---
 
-## 🌐 Deployment
+## License
 
-### Streamlit Cloud Deployment
-
-1. **Push to GitHub**
-```bash
-git add .
-git commit -m "Deploy feedback system"
-git push origin main
-```
-
-2. **Deploy on Streamlit Cloud**
-   - Visit [share.streamlit.io](https://share.streamlit.io)
-   - Connect your GitHub repository
-   - Select `user_dashboard.py` as main file
-   - Add HF_TOKEN in secrets
-   - Deploy!
-
-3. **Deploy Admin Dashboard**
-   - Create second app
-   - Select `admin_dashboard.py` as main file
-   - Use same secrets configuration
-
-### Environment Variables
-
-Required secrets in Streamlit Cloud:
-```toml
-HF_TOKEN = "your_huggingface_api_token"
-```
+MIT License — see [LICENSE](LICENSE) for details.
 
 ---
 
-## 📊 Data Schema
-
-### CSV Structure
-
-```python
-{
-    'id': int,              # Unique identifier (timestamp-based)
-    'timestamp': str,       # ISO format datetime
-    'rating': int,          # 1-5 star rating
-    'review': str,          # Customer feedback text
-    'ai_response': str,     # Generated AI response
-    'summary': str,         # AI-generated summary (admin)
-    'actions': str          # JSON array of action items
-}
-```
-
----
-
-## 🔮 Future Enhancements
-
-### Planned Features
-
-- [ ] **Multi-language Support**: Automatic translation for global customers
-- [ ] **Email Notifications**: Alert admins for negative feedback
-- [ ] **Database Integration**: PostgreSQL/MongoDB for persistent storage
-- [ ] **Advanced Analytics**: 
-  - Word cloud from reviews
-  - Sentiment trend prediction
-  - Topic modeling
-- [ ] **Export Functionality**: Download reports as PDF/Excel
-- [ ] **User Authentication**: Role-based access control
-- [ ] **API Endpoints**: RESTful API for integration
-- [ ] **Mobile App**: React Native companion app
-- [ ] **Webhook Integration**: Connect with CRM systems
-- [ ] **A/B Testing**: Test different AI response strategies
-
-### Performance Optimizations
-
-- [ ] Implement caching for repeated queries
-- [ ] Add rate limiting and request queuing
-- [ ] Optimize database queries
-- [ ] Add CDN for static assets
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how you can help:
-
-1. **Fork the repository**
-2. **Create a feature branch**
-```bash
-git checkout -b feature/AmazingFeature
-```
-3. **Commit your changes**
-```bash
-git commit -m 'Add some AmazingFeature'
-```
-4. **Push to the branch**
-```bash
-git push origin feature/AmazingFeature
-```
-5. **Open a Pull Request**
-
-### Development Guidelines
-
-- Follow PEP 8 style guide
-- Add docstrings to functions
-- Update README for new features
-- Test thoroughly before submitting PR
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👨‍💻 Connect
+## Built by
 
 **Navneet Shukla**
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/navneetshukla17)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/navneet-shukla17/)
-
----
-
-## 🙏 Acknowledgments
-
-- **Qwen Team** for the powerful LLM
-- **Hugging Face** for accessible AI infrastructure
-- **Streamlit** for the amazing framework
-- **Community** for feedback and support
-
----
-
-## 📈 Project Stats
-
-![GitHub Stars](https://img.shields.io/github/stars/navneetshukla17/LLM-powered-customer-feedback-system?style=social)
-![GitHub Forks](https://img.shields.io/github/forks/navneetshukla17/LLM-powered-customer-feedback-system?style=social)
-![GitHub Issues](https://img.shields.io/github/issues/navneetshukla17/LLM-powered-customer-feedback-system)
-
----
-
-<div align="center">
-
-### ⭐ Star this repository if you find it helpful!
-
-**Made with ❤️ By Navneet Shukla**
-
-</div>
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/navneet-shukla17/)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat-square&logo=github&logoColor=white)](https://github.com/navneetshukla17)
