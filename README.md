@@ -10,7 +10,7 @@
 [![Resend](https://img.shields.io/badge/Email-Resend-000000?style=flat-square)](https://resend.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 View Live](https://your-live-url.com) &nbsp;·&nbsp; [📋 PRD](./AI-Powered%20Customer%20Feedback.pdf) &nbsp;·&nbsp; [🐛 Report a Bug](https://github.com/navneetshukla17/noted/issues)
+[🚀 View Live](https://noted-feedbacks-app.onrender.com) &nbsp;·&nbsp; [📋 PRD](./AI-Powered%20Customer%20Feedback.pdf) &nbsp;·&nbsp; [🐛 Report a Bug](https://github.com/navneetshukla17/noted/issues)
 
 ---
 
