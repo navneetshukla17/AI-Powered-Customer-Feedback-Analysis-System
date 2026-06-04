@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 681.8089166666666 569.3000000000001" width="681.8089166666666" height="569.3000000000001" style="--bg:#1F1F1F;--fg:#CCCCCC;--line:#CCCCCC;--accent:#0078D4;--muted:#CCCCCCCC;--surface:#181818;--border:#CCCCCC;background:var(--bg)">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
+  text { font-family: 'Inter', system-ui, sans-serif; }
+  svg {
+    /* Derived from --bg and --fg (overridable via --line, --accent, etc.) */
+    --_text:          var(--fg);
+    --_text-sec:      var(--muted, color-mix(in srgb, var(--fg) 60%, var(--bg)));
+    --_text-muted:    var(--muted, color-mix(in srgb, var(--fg) 40%, var(--bg)));
+    --_text-faint:    color-mix(in srgb, var(--fg) 25%, var(--bg));
+    --_line:          var(--line, color-mix(in srgb, var(--fg) 50%, var(--bg)));
+    --_arrow:         var(--accent, color-mix(in srgb, var(--fg) 85%, var(--bg)));
+    --_node-fill:     var(--surface, color-mix(in srgb, var(--fg) 3%, var(--bg)));
+    --_node-stroke:   var(--border, color-mix(in srgb, var(--fg) 20%, var(--bg)));
+    --_group-fill:    var(--bg);
+    --_group-hdr:     color-mix(in srgb, var(--fg) 5%, var(--bg));
+    --_inner-stroke:  color-mix(in srgb, var(--fg) 12%, var(--bg));
+    --_key-badge:     color-mix(in srgb, var(--fg) 10%, var(--bg));
+  }
+</style>
+<defs>
+  <marker id="arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="var(--_arrow)" stroke="var(--_arrow)" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<g class="subgraph" data-id="Client" data-label="React Frontend">
+  <rect x="117.47991666666672" y="40" width="524.329" height="96.9" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="117.47991666666672" y="40" width="524.329" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="129.47991666666672" y="54" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">React Frontend</text>
+</g>
+<g class="subgraph" data-id="Server" data-label="Node.js Backend">
+  <rect x="102.82525000000004" y="265.20000000000005" width="519.142" height="264.1" rx="0" ry="0" fill="var(--_group-fill)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <rect x="102.82525000000004" y="265.20000000000005" width="519.142" height="28" rx="0" ry="0" fill="var(--_group-hdr)" stroke="var(--_node-stroke)" stroke-width="1" />
+  <text x="114.82525000000004" y="279.20000000000005" font-size="12" font-weight="600" fill="var(--_text-sec)" dy="4.199999999999999">Node.js Backend</text>
+</g>
+<polyline class="edge" data-from="CF" data-to="API" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Post Feedback" points="557.7804166666667,120.9 557.7804166666667,178.9 554.908,178.9 554.908,247.20000000000002 375.10675,247.20000000000002 375.10675000000003,309.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AD" data-to="API" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Get Analytics &amp; Feedback List" points="182.29025000000004,120.9 182.29025000000007,178.9 114.5,178.9 114.5,247.20000000000002 295.59275,247.20000000000002 295.59275,309.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="AD" data-to="API" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Generate AI Analysis / Trigger Emails" points="231.10058333333336,120.9 231.10058333333336,178.9 293.146,178.9 293.146,235.20000000000002 335.34975000000003,235.20000000000002 335.34975000000003,309.20000000000005" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="DB" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Read/Write" points="295.59275,346.1 295.59275,358.1 169.81075000000004,358.1 169.81075000000004,462.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="HF" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Fetch sentiment &amp; summary" points="335.34975000000003,346.1 335.34975000000003,462.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<polyline class="edge" data-from="API" data-to="Resend" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="Send transactional emails" points="375.10675,346.1 375.10675,358.1 527.93525,358.1 527.93525,462.40000000000003" fill="none" stroke="var(--_line)" stroke-width="1" marker-end="url(#arrowhead)" />
+<g class="edge-label" data-from="CF" data-to="API" data-label="Post Feedback">
+  <rect x="509.90799999999984" y="185.9" width="89.524" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="554.6699999999998" y="201.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Post Feedback</text>
+</g>
+<g class="edge-label" data-from="AD" data-to="API" data-label="Get Analytics &amp; Feedback List">
+  <rect x="36" y="185.9" width="156.64600000000002" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="114.32300000000001" y="201.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Get Analytics &amp; Feedback List</text>
+</g>
+<g class="edge-label" data-from="AD" data-to="API" data-label="Generate AI Analysis / Trigger Emails">
+  <rect x="196.646" y="185.9" width="192.286" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="292.789" y="201.05" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Generate AI Analysis / Trigger Emails</text>
+</g>
+<g class="edge-label" data-from="API" data-to="DB" data-label="Read/Write">
+  <rect x="134.81075000000004" y="389.1000000000001" width="69.92200000000001" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="169.77175000000005" y="404.25000000000006" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Read/Write</text>
+</g>
+<g class="edge-label" data-from="API" data-to="HF" data-label="Fetch sentiment &amp; summary">
+  <rect x="263.84975000000003" y="389.1000000000001" width="142.98400000000004" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="335.34175000000005" y="404.25000000000006" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Fetch sentiment &amp; summary</text>
+</g>
+<g class="edge-label" data-from="API" data-to="Resend" data-label="Send transactional emails">
+  <rect x="458.93524999999994" y="389.1000000000001" width="137.638" height="30.3" rx="2" ry="2" fill="var(--bg)" stroke="var(--_inner-stroke)" stroke-width="1" />
+  <text x="527.75425" y="404.25000000000006" text-anchor="middle" font-size="11" font-weight="400" fill="var(--_text-sec)" dy="3.8499999999999996">Send transactional emails</text>
+</g>
+<g class="node" data-id="CF" data-label="Feedback Form" data-shape="rectangle">
+  <rect x="489.75191666666666" y="84" width="136.057" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="557.7804166666666" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Feedback Form</text>
+</g>
+<g class="node" data-id="AD" data-label="Admin Dashboard" data-shape="rectangle">
+  <rect x="133.47991666666672" y="84" width="146.43099999999998" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="206.69541666666672" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Admin Dashboard</text>
+</g>
+<g class="node" data-id="Charts" data-label="Recharts Analytics" data-shape="rectangle">
+  <rect x="307.9109166666667" y="84" width="153.841" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="384.8314166666667" y="102.45" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Recharts Analytics</text>
+</g>
+<g class="node" data-id="API" data-label="Express API Router" data-shape="rectangle">
+  <rect x="255.83575000000002" y="309.20000000000005" width="159.028" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="335.34975000000003" y="327.65000000000003" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Express API Router</text>
+</g>
+<g class="node" data-id="HF" data-label="Hugging Face AI Client" data-shape="rectangle">
+  <rect x="248.79625000000004" y="462.40000000000003" width="173.10699999999997" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="335.34975000000003" y="480.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Hugging Face AI Client</text>
+</g>
+<g class="node" data-id="Resend" data-label="Resend Email Client" data-shape="rectangle">
+  <rect x="449.90325" y="462.40000000000003" width="156.06400000000002" height="36.900000000000006" rx="0" ry="0" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="527.93525" y="480.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">Resend Email Client</text>
+</g>
+<g class="node" data-id="DB" data-label="SQLite DB" data-shape="cylinder">
+  <rect x="118.82525000000004" y="469.40000000000003" width="101.971" height="36.900000000000006" fill="var(--_node-fill)" stroke="none" />
+  <line x1="118.82525000000004" y1="469.40000000000003" x2="118.82525000000004" y2="506.30000000000007" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <line x1="220.79625000000004" y1="469.40000000000003" x2="220.79625000000004" y2="506.30000000000007" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="169.81075000000004" cy="506.30000000000007" rx="50.9855" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <ellipse cx="169.81075000000004" cy="469.40000000000003" rx="50.9855" ry="7" fill="var(--_node-fill)" stroke="var(--_node-stroke)" stroke-width="0.75" />
+  <text x="169.81075000000004" y="487.85" text-anchor="middle" font-size="13" font-weight="500" fill="var(--_text)" dy="4.55">SQLite DB</text>
+</g>
+</svg>

@@ -10,7 +10,7 @@
 [![Resend](https://img.shields.io/badge/Email-Resend-000000?style=flat-square)](https://resend.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[🚀 View Live](https://your-live-url.com) &nbsp;·&nbsp; [📋 PRD](./PRD_AI_Powered_Customer_Feedback.docx) &nbsp;·&nbsp; [🐛 Report a Bug](https://github.com/navneetshukla17/noted/issues)
+[🚀 View Live](https://your-live-url.com) &nbsp;·&nbsp; [📋 PRD](./AI-Powered%20Customer%20Feedback.pdf) &nbsp;·&nbsp; [🐛 Report a Bug](https://github.com/navneetshukla17/noted/issues)
 
 ---
 
@@ -30,7 +30,7 @@ Most businesses collect customer feedback and do nothing visible with it. Custom
 
 ## System Architecture
 
-![Noted System Architecture](./system_architecture.svg)
+![Noted System Architecture](./system%20architecture.svg)
 
 The system is structured across two clear boundaries — a **React frontend** consumed by two personas (customers and admins), and a **Node.js backend** that owns AI inference, email delivery, and SQLite persistence. Every feedback item moves through a defined status lifecycle: `submitted → acknowledged → in-progress → resolved`.
 
